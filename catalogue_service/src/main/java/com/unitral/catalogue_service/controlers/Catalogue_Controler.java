@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.unitral.catalogue_service.dao.Products;
 
-import com.unitral.catalogue_service.sevice.Service_Imp;
+import com.unitral.catalogue_service.sevice.Service;
 
 @RestController
 public class Catalogue_Controler {
 	@Autowired
-	private Service_Imp service;
+	private Service service;
 	
 	
 	
