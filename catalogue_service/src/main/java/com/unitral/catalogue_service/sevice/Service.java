@@ -8,8 +8,8 @@ import com.unitral.catalogue_service.dao.Products;
 
 public interface Service  {
 	public List<Products> getProducts();
-	public List<Products> updateProducts(Products newProduct);
-	public void deleteProducts(int id);
+	public Products updateProducts(Products newProduct);
+	public void deleteProducts(String id);
 	public Products addProducts(Products newProduct);
 	
 

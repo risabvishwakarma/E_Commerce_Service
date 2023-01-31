@@ -41,7 +41,7 @@ public class Catalogue_Controler {
 		
 	}
 	@DeleteMapping("/{id}")
-	public void Delete_Products(@PathVariable int id){
+	public void Delete_Products(@PathVariable String id){
 	
 		service.deleteProducts(id);
 		
