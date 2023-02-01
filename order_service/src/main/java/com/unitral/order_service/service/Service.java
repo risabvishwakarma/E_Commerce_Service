@@ -7,9 +7,9 @@ import com.unitral.order_service.dao.Product;
 
 public interface Service {
 	public List<Product>getAll();
-	public Product updateProduct();
-	public Product addProduct();
-	public void deleteProduct();
+	Product addProduct(Product newProduct);
+	Product updateProduct(Product newProduct);
+	public void deleteProduct(int id);
 	
 	
 

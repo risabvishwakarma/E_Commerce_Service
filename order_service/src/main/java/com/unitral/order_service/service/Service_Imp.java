@@ -5,6 +5,8 @@ package com.unitral.order_service.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.unitral.order_service.controler.repositories.Order_Repository;
 import com.unitral.order_service.dao.Product;
@@ -29,20 +31,34 @@ public class Service_Imp  implements Service{
 	}
 
 	@Override
-	public Product updateProduct() {
-		// TODO Auto-generated method stub
-		return null;
+	public Product updateProduct(@RequestBody Product newProduct) {
+		
+		return orepo.findById(newProduct.getId()).map(dbProduct->{
+			dbProduct.setProductAvQuantity(newProduct.getProductAvQuantity());
+			dbProduct.setProductPrice(newProduct.getProductPrice());
+			return orepo.save(dbProduct);
+		}).orElseGet(() -> {
+	    	 return addProduct(newProduct);
+	      });
+		
+
+		
 	}
 
 	@Override
-	public Product addProduct() {
-		// TODO Auto-generated method stub
-		return null;
+	public Product addProduct(Product newProduct) {
+		
+	Product	product=orepo.findByProductNameAndProductId(newProduct.getProductName(),newProduct.getProductId());
+	//System.out.println(product==null?"NULL":product.getProductName());
+		return product==null?orepo.save(newProduct):product;
+	
 	}
 
+
 	@Override
-	public void deleteProduct() {
-		// TODO Auto-generated method stub
+	public void deleteProduct(int deleteId) {
+		if(!orepo.existsById(deleteId))return;
+		 orepo.deleteById(deleteId); 
 		
 	}
 	

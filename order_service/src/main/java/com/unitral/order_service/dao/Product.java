@@ -8,8 +8,9 @@ import jakarta.persistence.Id;
 @Entity
 public class Product {
 	
-	@Id
+	
 	@GeneratedValue
+	@Id
 	private int id;
 	@Nonnull
 	private String productId;
