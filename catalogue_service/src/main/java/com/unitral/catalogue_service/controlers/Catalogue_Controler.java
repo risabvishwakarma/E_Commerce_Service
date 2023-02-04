@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.unitral.catalogue_service.dao.Products;
@@ -16,6 +17,7 @@ import com.unitral.catalogue_service.dao.Products;
 import com.unitral.catalogue_service.sevice.Service;
 
 @RestController
+@RequestMapping("/catalogue")
 public class Catalogue_Controler {
 	@Autowired
 	private Service service;
