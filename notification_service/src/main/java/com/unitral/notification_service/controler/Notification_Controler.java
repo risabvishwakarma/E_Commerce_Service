@@ -23,6 +23,13 @@ public class Notification_Controler {
 	
 		
 	}
+	@GetMapping("/")
+	public boolean test() {
+		
+		return true;
+	
+		
+	}
 	
 	@GetMapping("/payFailed")
 	public ResponseEntity<?> PaymentFailed() {
