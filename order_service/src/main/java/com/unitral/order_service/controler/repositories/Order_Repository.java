@@ -13,6 +13,8 @@ public interface Order_Repository extends JpaRepository<Product, Integer> {
 
 	Product findByProductNameAndProductId(String productName, String productId);
 
+	Product findByProductId(String prodId);
+
 	
 
 	

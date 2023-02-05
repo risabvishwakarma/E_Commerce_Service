@@ -22,10 +22,11 @@ public class Service_Imp implements Service{
 	
 	void f(){
 			
-		crepo.save(new Products("user1","Physics",1));
-		crepo.save(new Products("user2","Maths",1));
-		crepo.save(new Products("user3","Chemistry",1));
-		crepo.save(new Products("user4","Java",1));
+		
+		crepo.save(new Products("user1","R112",1));
+		crepo.save(new Products("user2","R113",9));
+		crepo.save(new Products("user3","R114",4));
+		crepo.save(new Products("user4","R115",5));
 	
 	}
 	

@@ -1,5 +1,6 @@
 package com.unitral.order_service.controler;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.unitral.order_service.dao.Product;
@@ -22,6 +24,15 @@ public class Order_Controler {
 
 	@Autowired
 	private Service service ;
+	
+	@GetMapping("/test/{ls}")
+	public List<Product> getCat(@PathVariable String ls){
+		System.out.println(ls);
+		;
+		
+		//return null;
+			return service.getCat(Arrays.asList(ls.split(":")));
+		}
 	
 	@GetMapping("/")
 	public List<Product> getAll(){
