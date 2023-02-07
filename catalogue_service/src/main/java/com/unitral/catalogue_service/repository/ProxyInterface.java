@@ -14,7 +14,11 @@ import com.unitral.catalogue_service.dao.Products;
 @FeignClient(name="order-service")
 public interface ProxyInterface {
 	
-	@GetMapping("/order/test/{ls}")
-	List<Products> getOrderedProducts(@PathVariable String ls);
+	@GetMapping("/order/{ls}")
+	List<Products> getOrderedProducts(@PathVariable String ls);  //must write @PathVariable 
+	
+	@GetMapping("/order/{id}")
+
+	List<Products> get(String id);
 
 }

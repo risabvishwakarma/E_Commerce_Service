@@ -10,7 +10,8 @@ public interface Service {
 	Product addProduct(Product newProduct);
 	Product updateProduct(Product newProduct);
 	public void deleteProduct(int id);
-	public List<Product> getCat(List<String> ls);
+	List<Product> getCat(List<String> ls);
+	public int checkoutWithUserId(int userId);
 	
 	
 

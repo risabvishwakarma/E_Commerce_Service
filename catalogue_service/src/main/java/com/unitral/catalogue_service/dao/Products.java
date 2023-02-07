@@ -1,21 +1,27 @@
 package com.unitral.catalogue_service.dao;
 
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
 @Entity
-
+@Table(name="Catalogue")
 public class Products {
 	
 	@Id
 	String mapId;
 	
 	@Nonnull
-	private String productId;
+	private int id;
+
 	@Nonnull
-	private String userId;
+	private int userId;
 	private int productQuantity;
 	
 	@Transient
@@ -28,58 +34,71 @@ public class Products {
 	private String productCategory;			//Electric,Study,Other
  
 	
-	Products(){}
-	
-	
-	
-	public Products(String userId, String productId,int productQuantity) {
+	public Products( int userId,int id, int productQuantity) {
 		super();
-		mapId=userId+productId;
-		this.productId = productId;
+		this.mapId=""+userId+id;
+		this.id = id;
 		this.userId = userId;
 		this.productQuantity = productQuantity;
+
 	}
-	
-	public Products(String mapId, String productId, String userId, int productQuantity, String productName,
-			int productPrice, int productPriceoff, String productCategory) {
+
+
+	Products(){}
+
+
+	public Products( int id, int userId, int productQuantity, String productName, int productPrice,
+			int productPriceoff, String productCategory) {
 		super();
-		this.mapId = mapId;
-		this.productId = productId;
+		this.mapId=""+userId+id;
+		this.id = id;
 		this.userId = userId;
 		this.productQuantity = productQuantity;
 		this.productName = productName;
 		this.productPrice = productPrice;
 		this.productPriceoff = productPriceoff;
 		this.productCategory = productCategory;
-
 	}
-	
-	
+
+
 	public String getMapId() {
 		return mapId;
 	}
+
+
 	public void setMapId(String mapId) {
 		this.mapId = mapId;
 	}
-	public String getProductId() {
-		return productId;
+
+
+	public int getId() {
+		return id;
 	}
-	public void setProductId(String productId) {
-		this.productId = productId;
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getUserId() {
+
+
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
+
+
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
+
 	public int getProductQuantity() {
 		return productQuantity;
 	}
+
+
 	public void setProductQuantity(int productQuantity) {
 		this.productQuantity = productQuantity;
 	}
-
 
 
 	public String getProductName() {
@@ -87,11 +106,9 @@ public class Products {
 	}
 
 
-
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-
 
 
 	public int getProductPrice() {
@@ -99,11 +116,9 @@ public class Products {
 	}
 
 
-
 	public void setProductPrice(int productPrice) {
 		this.productPrice = productPrice;
 	}
-
 
 
 	public int getProductPriceoff() {
@@ -111,11 +126,9 @@ public class Products {
 	}
 
 
-
 	public void setProductPriceoff(int productPriceoff) {
 		this.productPriceoff = productPriceoff;
 	}
-
 
 
 	public String getProductCategory() {
@@ -123,18 +136,8 @@ public class Products {
 	}
 
 
-
 	public void setProductCategory(String productCategory) {
 		this.productCategory = productCategory;
 	}
-
-
-
-
-	
-	
-	
-	
-
-	
+		
 }

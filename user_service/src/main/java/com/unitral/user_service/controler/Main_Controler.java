@@ -1,4 +1,4 @@
-package com.unitral.notification_service.controler;
+package com.unitral.user_service.controler;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.unitral.notification_service.controler.service.Service_Inter;
-import com.unitral.notification_service.dao.User;
+import com.unitral.user_service.controler.service.Service_Inter;
+import com.unitral.user_service.dao.User;
 
 @RestController
 @RequestMapping("/user")
@@ -29,10 +29,16 @@ public class Main_Controler {
 	
 	@GetMapping("/")
 	public List<User> getAllUser(){
-		System.out.println("helo");
 		
 		return service.getAllUser();
 		}
+	
+	
+	@GetMapping("/check/{id}")
+	public boolean isHereUserPresent(@PathVariable int id) {
+		return service.isUserPresent(id);
+		
+	}
 	
 	
 	@GetMapping("/{id}")

@@ -23,17 +23,16 @@ public class Service_Imp implements Service{
 	void f(){
 			
 		
-		crepo.save(new Products("user1","R112",1));
-		crepo.save(new Products("user2","R113",9));
-		crepo.save(new Products("user3","R114",4));
-		crepo.save(new Products("user4","R115",5));
+//		crepo.save(new Products("1",452,1));
+//		crepo.save(new Products("2",453,9));
+//		crepo.save(new Products("3",454,4));
+		//crepo.save(new Products("4",R115,5));
 	
 	}
-	
-	
+
 	@Override
 	public Products addProducts(Products newProduct) {
-		newProduct.setMapId(newProduct.getUserId()+newProduct.getProductId());
+		newProduct.setMapId(""+newProduct.getUserId()+newProduct.getId());
 		
 		return crepo.existsById(newProduct.getMapId())?
 		updateProducts(newProduct)
@@ -64,6 +63,18 @@ public class Service_Imp implements Service{
 		if(!crepo.existsById(id))return;
 		crepo.deleteById(id);
 		
+	}
+
+	@Override
+	public List<Products> getProductsById(String userId) {
+		
+		return crepo.findByUserId(userId);
+	}
+
+	@Override
+	public List<Products> getProductsByUserId(String userId) {
+		
+		return crepo.findByUserId(userId) ;
 	}
 	
 	

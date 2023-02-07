@@ -1,5 +1,8 @@
-package com.unitral.notification_service.dao;
+package com.unitral.user_service.dao;
 
+import java.util.ArrayList;
+
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 
 
@@ -7,17 +10,24 @@ import jakarta.persistence.*;
 @Table(name="Customers")
 public class User {
 	@Id
-	 @GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	
+	
 	private int userId;
 	private String UserName;
-	
+	@Nonnull
+	private String Password;
+	@Nonnull
 	private String UserMail;
 	private String UserPhoneNo;
 	private String UserRole;
-
-	public User(String userName, String userMail, String userPhoneNo, String userRole) {
-		super();
 	
+//	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+//	private ArrayList<User_Address> UserAddressList=new ArrayList<>();
+
+	public User(String userName, String userMail, String userPhoneNo, String userRole,String password) {
+		super();
+		Password=password;
 		UserName = userName;
 		UserMail = userMail;
 		UserPhoneNo = userPhoneNo;
@@ -67,5 +77,15 @@ public class User {
 	public void setUserRole(String userRole) {
 		UserRole = userRole;
 	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.unitral.notification_service;
+package com.unitral.user_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

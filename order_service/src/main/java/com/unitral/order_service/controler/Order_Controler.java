@@ -1,5 +1,6 @@
 package com.unitral.order_service.controler;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,6 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.unitral.order_service.controler.repositories.ProxtyUser;
+//import com.unitral.order_service.controler.repositories.ProxtyUser;
+import com.unitral.order_service.controler.repositories.ProxyCatalogue;
+import com.unitral.order_service.dao.CatalogueProduct;
 import com.unitral.order_service.dao.Product;
 import com.unitral.order_service.service.Service;
 
@@ -23,37 +28,42 @@ import com.unitral.order_service.service.Service;
 public class Order_Controler {
 
 	@Autowired
-	private Service service ;
-	
-	@GetMapping("/test/{ls}")
-	public List<Product> getCat(@PathVariable String ls){
-		System.out.println(ls);
-		;
-		
-		//return null;
-			return service.getCat(Arrays.asList(ls.split(":")));
-		}
-	
+	private Service service;
+
+	@GetMapping("/{ls}")
+	public List<Product> getCat(@PathVariable String ls) {
+
+		return service.getCat(Arrays.asList(ls.split(":")));
+
+	}
+
 	@GetMapping("/")
-	public List<Product> getAll(){
-			return service.getAll();
-		}
+	public List<Product> getAll() {
+		return service.getAll();
+	}
+
 	@PostMapping("/")
-	public Product addProduct(
-			@RequestBody Product newProduct
-			){
-			return service.addProduct(newProduct);
-		}
+	public Product addProduct(@RequestBody Product newProduct) {
+		return service.addProduct(newProduct);
+	}
+
 	@PutMapping("/")
-	public Product updateProduct(
-			@RequestBody Product newProduct
-			){
-			return service.updateProduct(newProduct);
-		}
+	public Product updateProduct(@RequestBody Product newProduct) {
+		return service.updateProduct(newProduct);
+	}
+
 	@DeleteMapping("/{deleteId}")
-	public void deleteProduct(@PathVariable int deleteId){
-			 service.deleteProduct(deleteId);
-		}
+	public void deleteProduct(@PathVariable int deleteId) {
+		service.deleteProduct(deleteId);
+	}
+
+	@GetMapping("/checkout/{userId}")
+	int makePayment(@PathVariable int userId) {
+
+		return service.checkoutWithUserId(userId);
+
+	}
+
 	
 
 }

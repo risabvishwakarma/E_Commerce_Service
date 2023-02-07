@@ -1,4 +1,4 @@
-package com.unitral.notification_service.controler.service;
+package com.unitral.user_service.controler.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.unitral.notification_service.dao.User;
-import com.unitral.notification_service.repository.UserRepository;
+import com.unitral.user_service.dao.User;
+import com.unitral.user_service.repository.UserRepository;
 
 @Service
 public class Service_Imp implements Service_Inter {
@@ -59,7 +59,15 @@ public class Service_Imp implements Service_Inter {
 	}
 	
 	void f() {
-		urepo.save(new User("Risab","risab@mail.com","6398422422","customer"));
+//		urepo.save(new User("Risab","risab.7088@gmail.com","6398422422","customer","Risab@123"));
+//		urepo.save(new User("Arya","aryasharma9634@gmail.com","69237494020","customer","Arya@123"));
+//		urepo.save(new User("Deepu","deepu@gmail.com","69237494020","seller","Deepu@123"));
+	}
+
+	@Override
+	public boolean isUserPresent(int id) {
+		
+		return urepo.existsById(id);
 	}
 
 	

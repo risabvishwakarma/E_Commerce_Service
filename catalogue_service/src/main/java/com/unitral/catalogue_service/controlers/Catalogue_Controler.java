@@ -31,35 +31,51 @@ public class Catalogue_Controler {
 	
 	@GetMapping("/test")
 	public List<Products> test_Products(){
-		Map<String,Products> list=new HashMap<>();
+		Map<Integer,Products> list=new HashMap<>();
 		StringBuffer sb=new StringBuffer();
 		service.getProducts().forEach(pro->{
-			//System.out.println(pro.getProductId());
-			list.put(pro.getProductId(),pro);
-			sb.append(pro.getProductId());
+			System.out.println(pro.getId());
+			list.put(pro.getId(),pro);
+			sb.append(pro.getId());
 			sb.append(":");
 			
 		});
-		List<Products> productFromOrderService=pi.getOrderedProducts(sb.toString());
+		List<Products> productFromOrderService=
+				pi.getOrderedProducts(sb.toString());
+		
+	
 		for(Products p:productFromOrderService) {
-			p.setProductQuantity(list.get(p.getProductId()).getProductQuantity());
-			p.setUserId(list.get(p.getProductId()).getUserId());
-			p.setMapId(list.get(p.getProductId()).getMapId());
+			p.setProductQuantity(list.get(p.getId()).getProductQuantity());
+			p.setUserId(list.get(p.getId()).getUserId());
+			p.setMapId(list.get(p.getId()).getMapId());
 			
 		}
-//		for(Map.Entry<String, Products> mp:list.entrySet()) {
-//			
-//		}
-		//System.out.println(ls.size());
-		
 		return productFromOrderService;
 		
 	}
+	
+	
 	@GetMapping("/")
 	public List<Products> get_Products(){
 		return service.getProducts();
+	
+	}
+	
+	@GetMapping("/{userId}")
+	public Map<Integer,Integer>  get_Products(@PathVariable String userId){
+			Map<Integer,Integer> mp=new HashMap<>();
+		service.getProductsByUserId(userId).forEach(product->{
+			mp.put(product.getId(), product.getProductQuantity());
+			
+		});
+		
+
+		return mp;
 		
 	}
+	
+	
+	
 	@PostMapping("/")
 	public Products Post_Products(
 			@RequestBody Products newProduct

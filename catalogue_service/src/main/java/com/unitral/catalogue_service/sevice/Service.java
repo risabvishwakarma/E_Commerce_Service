@@ -11,6 +11,8 @@ public interface Service  {
 	public Products updateProducts(Products newProduct);
 	public void deleteProducts(String id);
 	public Products addProducts(Products newProduct);
+	public List<Products> getProductsById(String userId);
+	public List<Products> getProductsByUserId(String userId);
 	
 
 }
