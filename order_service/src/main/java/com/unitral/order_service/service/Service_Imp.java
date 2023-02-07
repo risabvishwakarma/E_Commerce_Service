@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.unitral.order_service.controler.repositories.Order_Repository;
 import com.unitral.order_service.controler.repositories.ProxtyUser;
 import com.unitral.order_service.controler.repositories.ProxyCatalogue;
+import com.unitral.order_service.controler.repositories.ProxyPayment;
+import com.unitral.order_service.controler.repositories.Proxynotification;
 import com.unitral.order_service.dao.CatalogueProduct;
 import com.unitral.order_service.dao.Product;
 
@@ -30,6 +32,12 @@ public class Service_Imp  implements Service{
 	
 	@Autowired
 	private ProxyCatalogue proxycatalogue;
+	
+	@Autowired
+	private ProxyPayment proxypayment;
+	
+	@Autowired
+	private Proxynotification  proxynotification;
 	
 
 	public Service_Imp() {
@@ -93,16 +101,17 @@ public class Service_Imp  implements Service{
 			prodls.add(p.get());
 			
 		});
-		//System.out.println("-> "+prodls.size());
+		
 		
 		
 		return prodls;
 	}
 
 	@Override
-	public int checkoutWithUserId(int userId) {
+	public String checkoutWithUserId(int userId) {
 		int TotalPrice=0;
-		if(!proxuser.isThereUserPresent(userId))return 0;
+		String mailId=proxuser.isThereUserPresent(userId);
+		if(mailId.length()<1)return "Nothing";
 		//0-product ID
 		//1-product Quantity
 		
@@ -114,21 +123,27 @@ public class Service_Imp  implements Service{
 		for(Map.Entry<Integer, Integer> entity:mp.entrySet()) {
 			productsList.add(orepo.findById(entity.getKey()).get());
 			
-			TotalPrice=(productsList.get(productsList.size()-1)
+			TotalPrice+=(productsList.get(productsList.size()-1)
 					.getProductPrice())*entity.getValue();
 		}
 		
-		printProducts(productsList,mp);
-		
-		return TotalPrice;
+	int paymentid=	proxypayment.makepayment(mailId+";"+TotalPrice);
+	
+	if(paymentid!=-1){
+	proxynotification.notify(mailId+";"+"Order Sucessful"+";"+"payment id ="+paymentid+"\n"+printProducts(productsList,mp)+"\n\t\t\t"+TotalPrice);
+	return "Done"+" "+paymentid;	}
+	
+	return "Failed"+" "+paymentid;
+	
 	}
 	
-	private void printProducts(List<Product> productList,Map<Integer,Integer> mp) {
+	private String printProducts(List<Product> productList,Map<Integer,Integer> mp) {
+		String st="";
 		for(Product prod:productList) {
-			System.out.println(prod.getProductName()+" "+mp.get(prod.getId())
-				+" "+prod.getProductPrice()+" = "+(prod.getProductPrice()*mp.get(prod.getId())));
+			st+=(prod.getProductName()+" "+mp.get(prod.getId())
+				+" "+prod.getProductPrice()+" = "+(prod.getProductPrice()*mp.get(prod.getId())))+"\n";
 		}
-
+return st;
 	}
 
 	

@@ -29,6 +29,16 @@ private Main_Interface mi;
 		System.out.println("Hello");
 		return mi.sendEmail("Hello Sir", "No SUB", "risab.7088@gmail.com", "aryasharma9634@gmail.com");
 	}
+
+	
+
+	@Override
+	public boolean sendMail(String rsMid) {
+		String  [] ar=rsMid.split(";");
+		
+		return mi.sendEmail(ar[2], ar[1], "risab.7088@gmail.com", "aryasharma9634@gmail.com");
+		
+	}
 	
 
 }

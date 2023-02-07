@@ -3,6 +3,7 @@ package com.unitral.notification_service.controler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,11 +17,10 @@ public class Notification_Controler {
 	private Service_Interface si;
 	
 	
-	@GetMapping("/payDone")
-	public ResponseEntity<?> PaymentDone() {
+	@GetMapping("/payDone/{RsMid}")
+	public boolean PaymentDone(@PathVariable String RsMid) {
 		
-		return si.sendMail()?ResponseEntity.ok("Sucessfully Sent paymentDone"):(ResponseEntity<?>) ResponseEntity
-				.internalServerError();
+		return si.sendMail(RsMid);
 		
 	
 		

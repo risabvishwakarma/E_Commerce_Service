@@ -10,16 +10,6 @@ import com.unitral.order_service.dao.Product;
 
 public interface Order_Repository extends JpaRepository<Product, Integer> {
 
-
-
-	
-
 	Product findByProductNameAndSellerId(String productName, String sellerId);
-
-	
-
-	
-
-	
 
 }

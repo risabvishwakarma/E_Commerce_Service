@@ -11,7 +11,7 @@ public interface Service {
 	Product updateProduct(Product newProduct);
 	public void deleteProduct(int id);
 	List<Product> getCat(List<String> ls);
-	public int checkoutWithUserId(int userId);
+	public String checkoutWithUserId(int userId);
 	
 	
 

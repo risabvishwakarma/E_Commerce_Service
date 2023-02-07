@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ProxtyUser {
 	
 	@GetMapping("/user/check/{id}")
-	boolean isThereUserPresent(@PathVariable int id);
+	String isThereUserPresent(@PathVariable int id);
 
 }

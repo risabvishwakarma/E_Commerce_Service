@@ -26,7 +26,7 @@ public class Mail_Service implements Main_Interface{
 		
 		//get the system properties
 		Properties properties = System.getProperties();
-		System.out.println("PROPERTIES "+properties);
+		//System.out.println("PROPERTIES "+properties);
 		
 		//setting important information to properties object
 		
@@ -73,7 +73,7 @@ public class Mail_Service implements Main_Interface{
 		//Step 3 : send the message using Transport class
 		Transport.send(m);
 		
-		System.out.println("Sent success...................");
+		//System.out.println("Sent success...................");
 		flag=true;
 		
 		

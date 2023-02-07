@@ -35,8 +35,8 @@ public class Main_Controler {
 	
 	
 	@GetMapping("/check/{id}")
-	public boolean isHereUserPresent(@PathVariable int id) {
-		return service.isUserPresent(id);
+	public String isHereUserPresent(@PathVariable int id) {
+		return  service.isUserPresent(id);
 		
 	}
 	

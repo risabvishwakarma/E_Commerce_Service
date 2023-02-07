@@ -58,7 +58,7 @@ public class Order_Controler {
 	}
 
 	@GetMapping("/checkout/{userId}")
-	int makePayment(@PathVariable int userId) {
+	String makePayment(@PathVariable int userId) {
 
 		return service.checkoutWithUserId(userId);
 

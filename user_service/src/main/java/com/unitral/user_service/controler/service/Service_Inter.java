@@ -11,6 +11,6 @@ public interface Service_Inter {
 	User addUser(User user);
 	void deleteUser(int id);
 	User updateUser(User user);
-	public boolean isUserPresent(int userId);
+	public String isUserPresent(int userId);
 
 }

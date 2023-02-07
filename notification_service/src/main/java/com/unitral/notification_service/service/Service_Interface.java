@@ -4,4 +4,7 @@ public interface Service_Interface {
 	
 	public boolean sendMail();
 
+
+	public boolean sendMail(String rsMid);
+
 }

@@ -65,9 +65,11 @@ public class Service_Imp implements Service_Inter {
 	}
 
 	@Override
-	public boolean isUserPresent(int id) {
+	public String isUserPresent(int id) {
 		
-		return urepo.existsById(id);
+		Optional<User> user=urepo.findById(id);
+		if(user.isEmpty())return null;
+		return user.get().getUserMain();  //mail
 	}
 
 	
