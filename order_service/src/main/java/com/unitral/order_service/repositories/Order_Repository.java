@@ -1,4 +1,4 @@
-package com.unitral.order_service.controler.repositories;
+package com.unitral.order_service.repositories;
 
 import java.util.List;
 

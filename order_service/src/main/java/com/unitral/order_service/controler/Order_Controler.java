@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.unitral.order_service.controler.repositories.ProxtyUser;
-//import com.unitral.order_service.controler.repositories.ProxtyUser;
-import com.unitral.order_service.controler.repositories.ProxyCatalogue;
 import com.unitral.order_service.dao.CatalogueProduct;
 import com.unitral.order_service.dao.Product;
+import com.unitral.order_service.repositories.ProxtyUser;
+import com.unitral.order_service.repositories.ProxyCatalogue;
 import com.unitral.order_service.service.Service;
 
 @RestController

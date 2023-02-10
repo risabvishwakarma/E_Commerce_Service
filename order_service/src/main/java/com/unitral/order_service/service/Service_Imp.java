@@ -6,19 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Properties;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.unitral.order_service.controler.repositories.Order_Repository;
-import com.unitral.order_service.controler.repositories.ProxtyUser;
-import com.unitral.order_service.controler.repositories.ProxyCatalogue;
-import com.unitral.order_service.controler.repositories.ProxyPayment;
-import com.unitral.order_service.controler.repositories.Proxynotification;
-import com.unitral.order_service.dao.CatalogueProduct;
+import com.unitral.order_service.repositories.Proxynotification;
 import com.unitral.order_service.dao.Product;
+import com.unitral.order_service.repositories.Order_Repository;
+import com.unitral.order_service.repositories.ProxtyUser;
+import com.unitral.order_service.repositories.ProxyCatalogue;
+import com.unitral.order_service.repositories.ProxyPayment;
 
 @org.springframework.stereotype.Service
 public class Service_Imp  implements Service{

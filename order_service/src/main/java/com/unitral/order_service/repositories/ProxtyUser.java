@@ -1,4 +1,4 @@
-package com.unitral.order_service.controler.repositories;
+package com.unitral.order_service.repositories;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
