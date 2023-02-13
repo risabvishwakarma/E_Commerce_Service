@@ -14,6 +14,8 @@ public interface ProxyCatalogue {
 	
 	@GetMapping("/catalogue/{userId}")
 	Map<Integer,Integer>  getProducts(@PathVariable int userId);
+	@GetMapping("/catalogue/delete/{userId}")
+   void	deleteUserCatalogue(@PathVariable int userId);
 	
 
 }

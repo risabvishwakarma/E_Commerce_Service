@@ -13,6 +13,7 @@ public interface Service  {
 	public Products addProducts(Products newProduct);
 	public List<Products> getProductsById(String userId);
 	public List<Products> getProductsByUserId(String userId);
-	
 
+
+	void deleteByUser(int userId);
 }

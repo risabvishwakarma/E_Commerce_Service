@@ -89,5 +89,10 @@ public class Catalogue_Controler {
 		service.deleteProducts(id);
 
 	}
+	@GetMapping("/delete/{userId}")
+	public void deleteUserDetails(@PathVariable  int userId ){
+		service.deleteByUser(userId);
+
+	}
 
 }

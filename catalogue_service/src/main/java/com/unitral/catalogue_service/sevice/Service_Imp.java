@@ -86,4 +86,9 @@ public class Service_Imp implements Service {
 		return crepo.findByUserId(userId);
 	}
 
+	@Override
+	public void deleteByUser(int userId) {
+		getProductsByUserId(String.valueOf(userId)).forEach(user->deleteProducts(user.getMapId()));
+	}
+
 }
