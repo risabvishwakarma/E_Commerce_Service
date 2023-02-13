@@ -29,16 +29,16 @@ public class Order_Controler {
 	@Autowired
 	private Service service;
 
+	@GetMapping("/")
+	public List<Product> getAll() {
+		return service.getAll();
+	}
+
 	@GetMapping("/{ls}")
 	public List<Product> getCat(@PathVariable String ls) {
 
 		return service.getCat(Arrays.asList(ls.split(":")));
 
-	}
-
-	@GetMapping("/")
-	public List<Product> getAll() {
-		return service.getAll();
 	}
 
 	@PostMapping("/")
@@ -56,13 +56,21 @@ public class Order_Controler {
 		service.deleteProduct(deleteId);
 	}
 
+	// checkout request for users
 	@GetMapping("/checkout/{userId}")
 	String makePayment(@PathVariable int userId) {
+		System.out.println(userId);
 
 		return service.checkoutWithUserId(userId);
 
 	}
-
 	
+	@GetMapping("/quantity/{prodictId}")
+	int getQuantity(@PathVariable int prodictId) {
+		
+
+		return service.getQuantityByProductId(prodictId);
+
+	}
 
 }

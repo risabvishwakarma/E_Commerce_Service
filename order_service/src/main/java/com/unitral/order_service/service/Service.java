@@ -12,6 +12,7 @@ public interface Service {
 	public void deleteProduct(int id);
 	List<Product> getCat(List<String> ls);
 	public String checkoutWithUserId(int userId);
+	public int getQuantityByProductId(int productId);
 	
 	
 

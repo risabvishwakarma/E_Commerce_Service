@@ -36,7 +36,7 @@ public class Products {
 	
 	public Products( int userId,int id, int productQuantity) {
 		super();
-		this.mapId=""+userId+id;
+		this.mapId=(""+userId + id).trim();
 		this.id = id;
 		this.userId = userId;
 		this.productQuantity = productQuantity;
@@ -50,7 +50,7 @@ public class Products {
 	public Products( int id, int userId, int productQuantity, String productName, int productPrice,
 			int productPriceoff, String productCategory) {
 		super();
-		this.mapId=""+userId+id;
+		this.mapId=(""+userId + id).trim();
 		this.id = id;
 		this.userId = userId;
 		this.productQuantity = productQuantity;

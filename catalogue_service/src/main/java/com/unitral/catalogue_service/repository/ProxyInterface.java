@@ -17,8 +17,7 @@ public interface ProxyInterface {
 	@GetMapping("/order/{ls}")
 	List<Products> getOrderedProducts(@PathVariable String ls);  //must write @PathVariable 
 	
-	@GetMapping("/order/{id}")
-
-	List<Products> get(String id);
+	@GetMapping("/order/quantity/{prodictId}")
+	int getAvialableQuantity(@PathVariable int prodictId);
 
 }

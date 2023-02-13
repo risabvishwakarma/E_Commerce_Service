@@ -85,8 +85,8 @@ public class Catalogue_Controler {
 		
 	}
 	@PutMapping("/")
-	public List<Products> Put_Products(){
-		return null;
+	public Products Put_Products(	@RequestBody Products newProduct){
+	return	service.updateProducts(newProduct);
 		
 	}
 	@DeleteMapping("/{id}")
