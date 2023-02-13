@@ -1,4 +1,4 @@
-package com.unitral.notification_service;
+package com.unitral.user_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
