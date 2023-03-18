@@ -67,7 +67,6 @@ public class Order_Controler {
 	
 	@GetMapping("/quantity/{prodictId}")
 	int getQuantity(@PathVariable int prodictId) {
-		
 
 		return service.getQuantityByProductId(prodictId);
 
