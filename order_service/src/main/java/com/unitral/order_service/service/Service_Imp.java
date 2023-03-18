@@ -11,7 +11,7 @@ import com.unitral.order_service.repositories.Proxynotification;
 import com.unitral.order_service.dao.Product;
 import com.unitral.order_service.repositories.Order_Repository;
 import com.unitral.order_service.repositories.ProxtyUser;
-import com.unitral.order_service.repositories.ProxyCatalogue;
+import com.unitral.order_service.repositories.ProxyCart;
 import com.unitral.order_service.repositories.ProxyPayment;
 
 @org.springframework.stereotype.Service
@@ -25,7 +25,7 @@ public class Service_Imp implements Service {
 	private ProxtyUser proxuser;
 
 	@Autowired
-	private ProxyCatalogue proxycatalogue;
+	private ProxyCart proxycatalogue;
 
 	@Autowired
 	private ProxyPayment proxypayment;
@@ -95,9 +95,7 @@ public class Service_Imp implements Service {
 		ls.forEach(prodId -> {
 			Optional<Product> p = orepo.findById(Integer.parseInt(prodId));
 			if (p.isPresent())
-
 				prodls.add(p.get());
-
 		});
 
 		return prodls;

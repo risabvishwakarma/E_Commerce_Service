@@ -1,10 +1,10 @@
-package com.unitral.catalogue_service.sevice;
+package com.unitral.cart_service.sevice;
 
 
 
 import java.util.List;
 
-import com.unitral.catalogue_service.dao.Products;
+import com.unitral.cart_service.dao.Products;
 
 public interface Service  {
 	public List<Products> getProducts();

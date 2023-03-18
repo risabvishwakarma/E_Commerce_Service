@@ -1,17 +1,18 @@
-package com.unitral.catalogue_service.sevice;
+package com.unitral.cart_service.sevice;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.unitral.catalogue_service.dao.Products;
-import com.unitral.catalogue_service.repository.CatalogueRepository;
-import com.unitral.catalogue_service.repository.ProxyInterface;
+
+import com.unitral.cart_service.dao.Products;
+import com.unitral.cart_service.repository.CartRepository;
+import com.unitral.cart_service.repository.ProxyInterface;
 
 @org.springframework.stereotype.Service
 public class Service_Imp implements Service {
 	boolean b = true;
 	final int Max_QAUNTITY = 10;
 	@Autowired
-	private CatalogueRepository crepo;
+	private CartRepository crepo;
 
 	@Autowired
 	private ProxyInterface proxyorder;

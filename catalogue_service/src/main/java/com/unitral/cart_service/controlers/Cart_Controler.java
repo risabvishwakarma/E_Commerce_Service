@@ -1,4 +1,4 @@
-package com.unitral.catalogue_service.controlers;
+package com.unitral.cart_service.controlers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.unitral.catalogue_service.dao.Products;
-import com.unitral.catalogue_service.repository.ProxyInterface;
-import com.unitral.catalogue_service.sevice.Service;
+import com.unitral.cart_service.dao.Products;
+import com.unitral.cart_service.repository.ProxyInterface;
+import com.unitral.cart_service.sevice.Service;
 
 @RestController
-@RequestMapping("/catalogue")
-public class Catalogue_Controler {
+@RequestMapping("/cart")
+public class Cart_Controler {
 	@Autowired
 	private Service service;
 

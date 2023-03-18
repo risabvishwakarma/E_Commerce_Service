@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.unitral.order_service.dao.CatalogueProduct;
 
-@FeignClient(name="catalogue-service")
-public interface ProxyCatalogue {
+@FeignClient(name="cart-service")
+public interface ProxyCart {
 	
-	@GetMapping("/catalogue/{userId}")
+	@GetMapping("/cart/{userId}")
 	Map<Integer,Integer>  getProducts(@PathVariable int userId);
-	@GetMapping("/catalogue/delete/{userId}")
+	@GetMapping("/cart/delete/{userId}")
    void	deleteUserCatalogue(@PathVariable int userId);
 	
 

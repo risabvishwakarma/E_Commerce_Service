@@ -1,4 +1,4 @@
-package com.unitral.catalogue_service.repository;
+package com.unitral.cart_service.repository;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.unitral.catalogue_service.dao.Products;
+import com.unitral.cart_service.dao.Products;
 
 
 @FeignClient(name="order-service")

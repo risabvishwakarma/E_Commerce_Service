@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.unitral.order_service.dao.CatalogueProduct;
 import com.unitral.order_service.dao.Product;
 import com.unitral.order_service.repositories.ProxtyUser;
-import com.unitral.order_service.repositories.ProxyCatalogue;
+import com.unitral.order_service.repositories.ProxyCart;
 import com.unitral.order_service.service.Service;
 
 @RestController

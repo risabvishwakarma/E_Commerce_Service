@@ -1,4 +1,4 @@
-package com.unitral.catalogue_service.dao;
+package com.unitral.cart_service.dao;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.CascadeType;
